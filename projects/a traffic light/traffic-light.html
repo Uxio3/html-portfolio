@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+	<style>
+		#rojo, #naranja, #verde{
+		border: 1px solid white;
+		width: 50px;
+		height: 50px;
+		border-radius: 50px;
+		padding: 50px;
+		background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<button id="rojo" class="semaforo"></button><br>
+	<button id="naranja" class="semaforo"></button><br>
+	<button id="verde" class="semaforo"></button><br><br><br>
+	<button id="boton" onclick="cambiar()">Cambiar</button>
+	<script>
+		const boton = document.querySelector("#boton");
+		const rojo = document.querySelector("#rojo");
+		const naranja = document.querySelector("#naranja");
+		const verde = document.querySelector("#verde");
+		let contador = 0;
+
+		function cambiar() {
+			if (contador === 0) {
+				rojo.style.backgroundColor = "red";
+				naranja.style.backgroundColor = "black";
+				verde.style.backgroundColor = "black";
+				contador++;
+			} else if (contador === 1) {
+				rojo.style.backgroundColor = "black";
+				naranja.style.backgroundColor = "orange";
+				verde.style.backgroundColor = "black";
+				contador++;
+			} else {
+				rojo.style.backgroundColor = "black";
+				naranja.style.backgroundColor = "black";
+				verde.style.backgroundColor = "green";
+				contador = 0;
+			}
+		}
+
+		boton.addEventListener('click', cambiar);
+
+	</script>
+</body>
+</html>

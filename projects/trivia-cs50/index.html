@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+
+
+            document.addEventListener('DOMContentLoaded', function(){
+                const currentInput = document.querySelector("#currentInput");
+                const resultado2 = document.querySelector("#resultado2");
+                const resultado1 = document.querySelector("#resultado1");
+                const options = document.querySelectorAll(".options");
+
+                options.forEach(function(element) {
+                    element.onclick = function() {
+                        options.forEach(function(option) {
+                            option.style.backgroundColor = "#d9edff";
+                        })
+
+                        if (element.id == "option1") {
+                            element.style.backgroundColor = "green";
+                            resultado1.textContent = "Correct!";
+                            }
+                        else {
+                            element.style.backgroundColor = "red";
+                            resultado1.textContent = "Incorrect";
+                            }
+                    };
+                });
+
+                document.querySelector("#checker").onclick = function(){
+                    if (currentInput.value == 47){
+                        resultado2.textContent = "Correct!";
+                        resultado2.style.color = "green";
+                        currentInput.style.border = "1px solid green";
+                        currentInput.style.backgroundColor = "green";
+                    }
+                    else {
+                        resultado2.textContent = "Incorrect";
+                        resultado2.style.color = "red";
+                        currentInput.style.border = "1px solid red";
+                        currentInput.style.backgroundColor = "red";
+                    }
+                };
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3>What is the approximate ratio of people to sheep in New Zeland?</h3>
+                 <h3 id="resultado1">Choose an option</h3>
+                 <button id="option2" class="options">2 people per 1 sheep</button>
+                 <button id="option3" class="options">22 people per 1 sheep</button>
+                 <button id="option4" class="options">8 people per 1 sheep</button>
+                 <button id="option1" class="options">5 people per 1 sheep</button>
+                 <button id="option5" class="options">1 people per 1 sheep</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>How many presidents has had USA?</h3>
+                 <h3 id="resultado2">Resultado:</h3>
+                 <input id="currentInput" type="text" placeholder="Example: 50">
+                 <button id="checker">Check Answer</button>
+            </div>
+        </div>
+    </body>
+</html>
